@@ -28,29 +28,29 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="discovery"
+        name='discovery'
         options={{
           title: "Discovery",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="globe" color={color} />
+            <IconSymbol size={28} name='globe' color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="index"
+        name='index'
         options={{
           title: "Menu",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="camera.fill" color={color} />
+            <IconSymbol size={28} name='camera.fill' color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name='profile'
         options={{
           title: "Profile",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="person.fill" color={color} />
+            <IconSymbol size={28} name='person.fill' color={color} />
           ),
         }}
       />
