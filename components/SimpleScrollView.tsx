@@ -1,17 +1,19 @@
-import React, { ReactNode } from 'react';
-import { ScrollView, View, Text, StyleSheet } from 'react-native';
+import React, { ReactNode } from "react";
+import { ScrollView, StyleSheet } from "react-native";
 
-export default function SimpleScrollView({ children  }: { children: ReactNode }){
+export default function SimpleScrollView({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      {children}
-    </ScrollView>
+    <ScrollView contentContainerStyle={styles.container}>{children}</ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 80,
-    alignItems: 'center',
+    alignItems: "center",
   },
 });
