@@ -1,9 +1,9 @@
 import SimpleScrollView from '@/components/SimpleScrollView';
 import { Text } from 'react-native';
-export default function TabCameraScreen() {
+export default function TabDiscoveryScreen() {
   return (
     <SimpleScrollView>
-      <Text>Camera Screen</Text>
+      <Text>Discovery Screen</Text>
     </SimpleScrollView>
   );
 }
