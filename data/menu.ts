@@ -1,38 +1,3 @@
-// Hors d'oeuvres
-import item_12 from "@/assets/food/hors_doeuvres/avocat_tomate.webp";
-import item_2 from "@/assets/food/hors_doeuvres/bisque_de_homard.webp";
-import item_15 from "@/assets/food/hors_doeuvres/boucherie_waffles.webp";
-import item_10 from "@/assets/food/hors_doeuvres/chevre.webp";
-import item_13 from "@/assets/food/hors_doeuvres/chia_pudding.webp";
-import item_5 from "@/assets/food/hors_doeuvres/les_escargots.webp";
-import item_9 from "@/assets/food/hors_doeuvres/mousse_foie_gras.webp";
-import item_16 from "@/assets/food/hors_doeuvres/pain_perdu.webp";
-import item_8 from "@/assets/food/hors_doeuvres/salade_cesar.webp";
-import item_7 from "@/assets/food/hors_doeuvres/salade_mesclun.webp";
-import item_3 from "@/assets/food/hors_doeuvres/salade_nicoise.webp";
-import item_11 from "@/assets/food/hors_doeuvres/saumon_fume.webp";
-import item_1 from "@/assets/food/hors_doeuvres/soupe_a_loignon.webp";
-import item_4 from "@/assets/food/hors_doeuvres/steak_tartare.webp";
-import item_6 from "@/assets/food/hors_doeuvres/wagyu_carpaccio.webp";
-import item_14 from "@/assets/food/hors_doeuvres/yogurt_parfait.webp";
-// Les Oeufs
-import item_17 from "@/assets/food/les_oeufs/eggs_benedict.webp";
-import item_18 from "@/assets/food/les_oeufs/eggs_norwegian.webp";
-import item_21 from "@/assets/food/les_oeufs/oeufs_meurette.webp";
-import item_20 from "@/assets/food/les_oeufs/omelette_au_choix.webp";
-import item_19 from "@/assets/food/les_oeufs/steak_aux_oeufs.webp";
-// Plats Principaux
-import item_30 from "@/assets/food/plats_principaux/boucherie_burger.webp";
-import item_24 from "@/assets/food/plats_principaux/coq_au_vin.webp";
-import item_28 from "@/assets/food/plats_principaux/croque_madame.webp";
-import item_27 from "@/assets/food/plats_principaux/croque_monsieur.webp";
-import item_23 from "@/assets/food/plats_principaux/moules_dijonnaise.webp";
-import item_29 from "@/assets/food/plats_principaux/sandwich_boeuf.webp";
-import item_25 from "@/assets/food/plats_principaux/saumon_roti.webp";
-import item_26 from "@/assets/food/plats_principaux/st_jacques_roties.webp";
-import item_22 from "@/assets/food/plats_principaux/steak_frites.webp";
-import item_31 from "@/assets/food/plats_principaux/wagyu_burger.webp";
-
 const menuData = [
   {
     groupId: 0,
@@ -49,7 +14,9 @@ const menuData = [
         ingredients: ["Onions", "Croutons", "Gruyère"],
         allergens: ["Gluten", "Dairy"],
         personalizationScore: 85,
-        imageUrls: [item_1],
+        imageUrls: [
+          require("@/assets/food/hors_doeuvres/soupe_a_loignon.webp"),
+        ],
         history:
           "A humble Parisian market worker's dish that became a French cuisine classic.",
         reviews: [
@@ -79,7 +46,9 @@ const menuData = [
         ingredients: ["Lobster meat", "Sherry cream", "Chives"],
         allergens: ["Shellfish", "Dairy", "Alcohol"],
         personalizationScore: 88,
-        imageUrls: [item_2],
+        imageUrls: [
+          require("@/assets/food/hors_doeuvres/bisque_de_homard.webp"),
+        ],
         history:
           "A refined soup that evolved from humble fishermen's fare to haute cuisine.",
         reviews: [
@@ -118,7 +87,7 @@ const menuData = [
         ],
         allergens: ["Fish", "Eggs"],
         personalizationScore: 86,
-        imageUrls: [item_3],
+        imageUrls: [require("@/assets/food/hors_doeuvres/salade_nicoise.webp")],
         history:
           "Originated in Nice, France, this salad represents the fresh flavors of the Mediterranean coast.",
         reviews: [
@@ -155,7 +124,7 @@ const menuData = [
         ],
         allergens: ["Eggs", "Gluten", "Raw meat"],
         personalizationScore: 84,
-        imageUrls: [item_4],
+        imageUrls: [require("@/assets/food/hors_doeuvres/steak_tartare.webp")],
         history:
           "A dish that evolved from Mongol warriors to French fine dining, becoming a bistro classic.",
         reviews: [
@@ -190,7 +159,7 @@ const menuData = [
         ],
         allergens: ["Dairy", "Mollusks"],
         personalizationScore: 82,
-        imageUrls: [item_5],
+        imageUrls: [require("@/assets/food/hors_doeuvres/les_escargots.webp")],
         history:
           "A Burgundian specialty that became a symbol of French gastronomy in the 20th century.",
         reviews: [
@@ -219,7 +188,9 @@ const menuData = [
         ingredients: ["Wagyu beef", "Truffle mayo", "Horseradish", "Capers"],
         allergens: ["Eggs", "Raw meat"],
         personalizationScore: 88,
-        imageUrls: [item_6],
+        imageUrls: [
+          require("@/assets/food/hors_doeuvres/wagyu_carpaccio.webp"),
+        ],
         history:
           "A modern twist on the Venetian classic, elevated with premium Wagyu beef.",
         reviews: [
@@ -256,7 +227,7 @@ const menuData = [
         ],
         allergens: ["Dairy", "Nuts", "Gluten"],
         personalizationScore: 86,
-        imageUrls: [item_7],
+        imageUrls: [require("@/assets/food/hors_doeuvres/salade_mesclun.webp")],
         history:
           "A modern French bistro creation combining traditional croquettes with fresh market ingredients.",
         reviews: [
@@ -285,7 +256,7 @@ const menuData = [
         ingredients: ["Romaine", "Anchovy", "Parmesan", "Lemon"],
         allergens: ["Fish", "Dairy", "Eggs"],
         personalizationScore: 83,
-        imageUrls: [item_8],
+        imageUrls: [require("@/assets/food/hors_doeuvres/salade_cesar.webp")],
         history:
           "Though created in Mexico, this salad has become a French bistro standard with subtle modifications.",
         reviews: [
@@ -314,7 +285,9 @@ const menuData = [
         ingredients: ["Duck liver", "Cherries", "Crostini"],
         allergens: ["Gluten"],
         personalizationScore: 87,
-        imageUrls: [item_9],
+        imageUrls: [
+          require("@/assets/food/hors_doeuvres/mousse_foie_gras.webp"),
+        ],
         history:
           "A refined preparation of traditional French charcuterie, paired with sweet accompaniments.",
         reviews: [
@@ -350,7 +323,7 @@ const menuData = [
         ],
         allergens: ["Dairy", "Gluten", "Nuts"],
         personalizationScore: 84,
-        imageUrls: [item_10],
+        imageUrls: [require("@/assets/food/hors_doeuvres/chevre.webp")],
         history:
           "A bistro favorite that showcases the French appreciation for fresh chèvre and simple preparation.",
         reviews: [
@@ -389,7 +362,7 @@ const menuData = [
         ],
         allergens: ["Fish", "Dairy", "Gluten", "Eggs"],
         personalizationScore: 89,
-        imageUrls: [item_11],
+        imageUrls: [require("@/assets/food/hors_doeuvres/saumon_fume.webp")],
         history:
           "A classic of French café culture, combining Nordic smoking traditions with French presentation.",
         reviews: [
@@ -418,7 +391,7 @@ const menuData = [
         ingredients: ["Avocado toast", "Lemon", "Eggs"],
         allergens: ["Eggs", "Gluten"],
         personalizationScore: 85,
-        imageUrls: [item_12],
+        imageUrls: [require("@/assets/food/hors_doeuvres/avocat_tomate.webp")],
         history:
           "A contemporary addition to the French breakfast menu, embracing global breakfast trends with French refinement.",
         reviews: [
@@ -453,7 +426,7 @@ const menuData = [
         ],
         allergens: [],
         personalizationScore: 82,
-        imageUrls: [item_13],
+        imageUrls: [require("@/assets/food/hors_doeuvres/chia_pudding.webp")],
         history:
           "A modern health-conscious addition to the traditional French breakfast menu.",
         reviews: [
@@ -482,7 +455,7 @@ const menuData = [
         ingredients: ["Yogurt", "Homemade granola", "Fresh berries"],
         allergens: ["Dairy", "Nuts"],
         personalizationScore: 83,
-        imageUrls: [item_14],
+        imageUrls: [require("@/assets/food/hors_doeuvres/yogurt_parfait.webp")],
         history:
           "A lighter breakfast option incorporating French dairy traditions with modern health consciousness.",
         reviews: [
@@ -516,7 +489,9 @@ const menuData = [
         ],
         allergens: ["Gluten", "Dairy", "Eggs"],
         personalizationScore: 90,
-        imageUrls: [item_15],
+        imageUrls: [
+          require("@/assets/food/hors_doeuvres/boucherie_waffles.webp"),
+        ],
         history:
           "A French interpretation of Belgian waffles, elevated with Italian mascarpone cream and French caramel.",
         reviews: [
@@ -545,7 +520,7 @@ const menuData = [
         ingredients: ["Mixed berries", "Maple syrup", "Brioche bread"],
         allergens: ["Gluten", "Dairy", "Eggs"],
         personalizationScore: 87,
-        imageUrls: [item_16],
+        imageUrls: [require("@/assets/food/hors_doeuvres/pain_perdu.webp")],
         history:
           "Traditional French way of using day-old bread, elevated to a beloved breakfast dish.",
         reviews: [
@@ -580,7 +555,7 @@ const menuData = [
         ingredients: ["English muffin", "Jambon", "Eggs", "Hollandaise sauce"],
         allergens: ["Eggs", "Gluten", "Dairy"],
         personalizationScore: 91,
-        imageUrls: [item_17],
+        imageUrls: [require("@/assets/food/les_oeufs/eggs_benedict.webp")],
         history:
           "A New York creation that became a global brunch classic, perfected with French technique.",
         reviews: [
@@ -614,7 +589,7 @@ const menuData = [
         ],
         allergens: ["Eggs", "Fish", "Gluten", "Dairy"],
         personalizationScore: 89,
-        imageUrls: [item_18],
+        imageUrls: [require("@/assets/food/les_oeufs/eggs_norwegian.webp")],
         history:
           "A luxurious variation of Eggs Benedict featuring Norwegian salmon, popularized in high-end brunches.",
         reviews: [
@@ -643,7 +618,7 @@ const menuData = [
         ingredients: ["Bavette steak", "Farm eggs", "Mixed greens"],
         allergens: ["Eggs"],
         personalizationScore: 88,
-        imageUrls: [item_19],
+        imageUrls: [require("@/assets/food/les_oeufs/steak_aux_oeufs.webp")],
         history:
           "A French refinement of the American classic, using traditional bavette cut and farm-fresh eggs.",
         reviews: [
@@ -672,7 +647,7 @@ const menuData = [
         ingredients: ["Eggs", "Jambon", "Gruyère", "Champignon"],
         allergens: ["Eggs", "Dairy"],
         personalizationScore: 86,
-        imageUrls: [item_20],
+        imageUrls: [require("@/assets/food/les_oeufs/omelette_au_choix.webp")],
         history:
           "Traditional French omelette technique showcasing classic flavor combinations.",
         reviews: [
@@ -706,7 +681,7 @@ const menuData = [
         ],
         allergens: ["Eggs", "Alcohol"],
         personalizationScore: 85,
-        imageUrls: [item_21],
+        imageUrls: [require("@/assets/food/les_oeufs/oeufs_meurette.webp")],
         history:
           "A beloved specialty from Burgundy, combining poached eggs with red wine sauce.",
         reviews: [
@@ -741,7 +716,9 @@ const menuData = [
         ingredients: ["NY strip steak", "Herb butter", "Pommes frites"],
         allergens: ["Dairy"],
         personalizationScore: 93,
-        imageUrls: [item_22],
+        imageUrls: [
+          require("@/assets/food/plats_principaux/steak_frites.webp"),
+        ],
         history:
           "The quintessential French bistro dish, perfected through generations of tradition.",
         reviews: [
@@ -777,7 +754,9 @@ const menuData = [
         ],
         allergens: ["Shellfish", "Dairy", "Mustard"],
         personalizationScore: 87,
-        imageUrls: [item_23],
+        imageUrls: [
+          require("@/assets/food/plats_principaux/moules_dijonnaise.webp"),
+        ],
         history:
           "A regional specialty combining the coastal mussels with Dijon's famous mustard.",
         reviews: [
@@ -813,7 +792,7 @@ const menuData = [
         ],
         allergens: ["Alcohol"],
         personalizationScore: 92,
-        imageUrls: [item_24],
+        imageUrls: [require("@/assets/food/plats_principaux/coq_au_vin.webp")],
         history:
           "A rustic French dish elevated to restaurant status by Julia Child's popularization.",
         reviews: [
@@ -846,7 +825,7 @@ const menuData = [
         ],
         allergens: ["Fish"],
         personalizationScore: 88,
-        imageUrls: [item_25],
+        imageUrls: [require("@/assets/food/plats_principaux/saumon_roti.webp")],
         history:
           "A modern preparation combining French technique with international flavors.",
         reviews: [
@@ -875,7 +854,9 @@ const menuData = [
         ingredients: ["Scallops", "Squash purée", "Lentils"],
         allergens: ["Shellfish"],
         personalizationScore: 90,
-        imageUrls: [item_26],
+        imageUrls: [
+          require("@/assets/food/plats_principaux/st_jacques_roties.webp"),
+        ],
         history:
           "A refined dish showcasing the French mastery of seafood preparation.",
         reviews: [
@@ -904,7 +885,9 @@ const menuData = [
         ingredients: ["Jambon", "Gruyère", "Sourdough bread", "Petite salad"],
         allergens: ["Gluten", "Dairy"],
         personalizationScore: 85,
-        imageUrls: [item_27],
+        imageUrls: [
+          require("@/assets/food/plats_principaux/croque_monsieur.webp"),
+        ],
         history:
           "A Parisian café classic that became a global symbol of French casual dining.",
         reviews: [
@@ -939,7 +922,9 @@ const menuData = [
         ],
         allergens: ["Gluten", "Dairy", "Eggs"],
         personalizationScore: 87,
-        imageUrls: [item_28],
+        imageUrls: [
+          require("@/assets/food/plats_principaux/croque_madame.webp"),
+        ],
         history:
           "A variation of the Croque Monsieur, created in French cafés by adding a fried egg on top.",
         reviews: [
@@ -975,7 +960,9 @@ const menuData = [
         ],
         allergens: ["Gluten", "Eggs"],
         personalizationScore: 91,
-        imageUrls: [item_29],
+        imageUrls: [
+          require("@/assets/food/plats_principaux/sandwich_boeuf.webp"),
+        ],
         history:
           "A bistro interpretation of the classic steak sandwich, elevated with French techniques and ingredients.",
         reviews: [
@@ -1011,7 +998,9 @@ const menuData = [
         ],
         allergens: ["Gluten", "Dairy"],
         personalizationScore: 94,
-        imageUrls: [item_30],
+        imageUrls: [
+          require("@/assets/food/plats_principaux/boucherie_burger.webp"),
+        ],
         history:
           "A French bistro interpretation of the American burger, featuring traditional French ingredients.",
         reviews: [
@@ -1047,7 +1036,9 @@ const menuData = [
         ],
         allergens: ["Gluten", "Dairy", "Mustard"],
         personalizationScore: 96,
-        imageUrls: [item_31],
+        imageUrls: [
+          require("@/assets/food/plats_principaux/wagyu_burger.webp"),
+        ],
         history:
           "A luxurious combination of Japanese wagyu beef preparation with French culinary traditions.",
         reviews: [

@@ -1,11 +1,9 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { RootState } from "@/app/store";
+import { IconSymbol, IconSymbolName } from "@/components/ui/IconSymbol";
 import { MenuType } from "@/features/Menu/constants";
 import { setMenuType } from "@/features/Menu/menuSlice";
-
-import { IconSymbol, IconSymbolName } from "./ui/IconSymbol";
 
 const Button = ({
   icon,
@@ -33,8 +31,7 @@ const Button = ({
   );
 };
 
-const TopBar = () => {
-  const menuType = useSelector((state: RootState) => state.menu.menuType);
+const TopBar = ({ menuType }: { menuType: string }) => {
   const dispatch = useDispatch();
 
   const handleButtonPress = (menuType: string) => {

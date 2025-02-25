@@ -2,10 +2,12 @@ import { Text } from "react-native";
 
 import SimpleScrollView from "@/components/SimpleScrollView";
 
-export default function TabDiscoveryScreen() {
+const PicView = () => {
   return (
     <SimpleScrollView>
-      <Text>Discovery Screen</Text>
+      <Text>Pic View</Text>
     </SimpleScrollView>
   );
-}
+};
+
+export default PicView;
