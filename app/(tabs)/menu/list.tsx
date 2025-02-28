@@ -10,14 +10,12 @@ import {
 import { useSelector } from "react-redux";
 
 import SimpleScrollView from "@/components/SimpleScrollView";
-
-import ListItemCard from "./ListItemCard";
-
-import { HorizontalLine } from "../ui/HorizontalLine";
+import ListItemCard from "@/components/menu/ListItemCard";
+import { HorizontalLine } from "@/components/ui/HorizontalLine";
 
 const screenWidth = Dimensions.get("window").width;
 
-const ListView = () => {
+const ListScreen = () => {
   const { groups, items } = useSelector((state: any) => state.menu);
   const [activeGroup, setActiveGroup] = useState<number>(groups[0].groupId);
 
@@ -96,4 +94,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListView;
+export default ListScreen;

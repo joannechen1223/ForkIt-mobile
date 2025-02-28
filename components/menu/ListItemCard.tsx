@@ -1,11 +1,21 @@
 import { MaterialIcons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 import AllergenIcon from "@/components/AllergenIcon";
 import ingredientsDict from "@/data/ingredients";
 
 const ListItemCard = ({ item }: { item: any }) => {
-  const { itemName, translationName, ingredients, imageUrls, allergens } = item;
+  const router = useRouter();
+
+  const {
+    itemId,
+    itemName,
+    translationName,
+    ingredients,
+    imageUrls,
+    allergens,
+  } = item;
   return (
     <View style={styles.flexColumnContainer}>
       <View style={styles.flexRowContainer}>
@@ -59,7 +69,10 @@ const ListItemCard = ({ item }: { item: any }) => {
           </View>
         )}
 
-        <TouchableOpacity style={styles.learnMoreButton} onPress={() => {}}>
+        <TouchableOpacity
+          style={styles.learnMoreButton}
+          onPress={() => router.push(`/menu/${itemId}`)}
+        >
           <Text style={styles.learnMoreText}>Learn more</Text>
           <MaterialIcons
             name="chevron-right"
@@ -122,6 +135,7 @@ const styles = StyleSheet.create({
   ingredientText: {
     fontSize: 14,
     lineHeight: 25,
+    fontFamily: "Times New Roman",
   },
   searchIcon: {
     marginLeft: 10,

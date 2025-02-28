@@ -16,6 +16,7 @@ const menuData = [
         personalizationScore: 85,
         imageUrls: [
           require("@/assets/food/hors_doeuvres/soupe_a_loignon.webp"),
+          require("@/assets/food/hors_doeuvres/soupe_a_loignon.webp"),
         ],
         history:
           "A humble Parisian market worker's dish that became a French cuisine classic.",
@@ -35,6 +36,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews consistently praise the rich broth and well-executed cheese crust, with special mention of properly caramelized onions.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 2,
@@ -66,6 +99,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews highlight the soup's silky texture and generous lobster portions, with appreciation for the balanced use of sherry.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 3,
@@ -106,6 +171,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews emphasize the quality and freshness of ingredients, particularly the tuna, with praise for the authentic preparation.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 4,
@@ -143,6 +240,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews highlight the quality of the beef and traditional preparation, with particular praise for the seasoning and textural elements.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 5,
@@ -178,6 +307,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews emphasize the quality of the garlic-herb butter and proper preparation of the snails, noting the dish's traditional execution.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 6,
@@ -209,6 +370,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews consistently praise the quality of the Wagyu beef and its pairing with truffle mayonnaise, noting the textural excellence.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 7,
@@ -246,6 +439,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews highlight the textural contrast between crispy croquettes and fresh ingredients, with praise for the overall balance of flavors.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 8,
@@ -275,6 +500,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews praise the traditional preparation and balance of flavors, particularly noting the proper use of anchovy and quality of ingredients.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 9,
@@ -306,6 +563,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews emphasize the smooth texture and proper seasoning of the mousse, with particular praise for its pairing with cherries.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 10,
@@ -342,6 +631,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews highlight the quality of the goat cheese and its successful pairing with fresh vegetables and pesto.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 11,
@@ -381,6 +702,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews emphasize the quality of the salmon and balanced proportions of accompaniments, particularly noting the proper use of capers and onions.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 12,
@@ -410,6 +763,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews highlight the quality of the avocado and proper preparation of eggs, with appreciation for the simple but effective seasoning.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 13,
@@ -445,6 +830,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews praise the balanced sweetness and creamy texture, with particular mention of the fresh fruit toppings.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 14,
@@ -474,6 +891,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews consistently praise the quality of the homemade granola and the freshness of berries, noting the perfect textural contrast.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 15,
@@ -510,6 +959,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews emphasize the waffles' texture and the quality of the mascarpone cream, with special praise for the caramel addition.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 16,
@@ -539,6 +1020,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews highlight the contrasting textures and quality of ingredients, particularly noting the proper preparation of the bread.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
     ],
   },
@@ -574,6 +1087,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews consistently praise the technical execution of both the hollandaise and poached eggs, with appreciation for the quality ham.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 18,
@@ -608,6 +1153,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews emphasize the quality of the salmon and its harmony with the hollandaise, along with praise for egg preparation.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 19,
@@ -637,6 +1214,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews highlight the quality of both the steak and eggs, with emphasis on proper cooking temperatures and freshness.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 20,
@@ -666,6 +1275,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews emphasize the traditional French preparation technique and quality of ingredients, particularly noting the texture.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 21,
@@ -700,6 +1341,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews praise the rich wine sauce and proper egg poaching, with appreciation for the traditional preparation.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
     ],
   },
@@ -737,6 +1410,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews consistently highlight the quality of the meat and proper preparation of the fries, with special mention of the herb butter.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 23,
@@ -775,6 +1480,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews emphasize the balance of the mustard cream sauce and the freshness of the mussels, noting the dish's delicate flavors.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 24,
@@ -811,6 +1548,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews highlight the tenderness of the chicken and richness of the wine sauce, with praise for the vegetable preparation.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 25,
@@ -844,6 +1613,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews consistently praise the cooking technique of the salmon and the complementary sauce, noting the quality of the vegetables.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 26,
@@ -875,6 +1676,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews emphasize the proper searing of the scallops and the smooth texture of the purée, with appreciation for the textural contrast.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 27,
@@ -906,6 +1739,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews praise the balance of ingredients and proper execution, particularly noting the cheese's melting quality.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 28,
@@ -943,6 +1808,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews highlight the addition of the perfectly cooked egg to the classic sandwich, noting the overall execution and richness.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 29,
@@ -961,6 +1858,7 @@ const menuData = [
         allergens: ["Gluten", "Eggs"],
         personalizationScore: 91,
         imageUrls: [
+          require("@/assets/food/plats_principaux/sandwich_boeuf.webp"),
           require("@/assets/food/plats_principaux/sandwich_boeuf.webp"),
         ],
         history:
@@ -981,6 +1879,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews emphasize the quality of the steak and caramelized onions, with particular praise for the horseradish aioli and bread quality.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 30,
@@ -1019,6 +1949,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews highlight the unique combination of dry-aged beef and French ingredients, particularly praising the red wine butter and Brie cheese.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
       {
         itemId: 31,
@@ -1057,6 +2019,38 @@ const menuData = [
         ],
         aiReview:
           "Reviews consistently praise the exceptional quality of the wagyu beef and the luxury of the truffle dijonnaise, noting the overall harmony of ingredients.",
+        newFlavor: [
+          {
+            name: "Rich, Deep Flavor",
+            description:
+              "Slow-cooked caramelized onions create a uniquely sweet and savory taste.",
+          },
+          {
+            name: "Gruyère Cheese",
+            description:
+              "Unlike common American cheddar, this Swiss cheese adds a nutty, melty topping.",
+          },
+          {
+            name: "Broiled Cheese Crust",
+            description:
+              "The soup is finished under a broiler, creating a crispy, golden cheese layer.",
+          },
+          {
+            name: "French Baguette Crouton",
+            description:
+              "Instead of crackers, a toasted baguette slice soaks up the broth.",
+          },
+          {
+            name: "Wine or Brandy Base",
+            description:
+              "Unlike American soups, it often includes white wine or brandy for depth.",
+          },
+          {
+            name: "Slow Caramelization",
+            description:
+              "Onions are cooked low and slow for an hour, intensifying the umami flavor.",
+          },
+        ],
       },
     ],
   },

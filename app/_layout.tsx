@@ -14,7 +14,7 @@ import { Provider } from "react-redux";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 
-import { store } from "./store";
+import store from "./store";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
