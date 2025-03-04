@@ -10,9 +10,11 @@ import {
   Image,
 } from "react-native";
 
+import { chat } from "@/features/Menu/chat";
+
 const ChatScreen = () => {
   const [searchText, setSearchText] = useState("");
-
+  const [isLoading, setIsLoading] = useState(false);
   const [chatHistory, setChatHistory] = useState([
     {
       text: "Hi! You can ask me anything about Boucherie's menu",
@@ -24,9 +26,36 @@ const ChatScreen = () => {
     setSearchText(text);
   };
 
-  const handlePromptInput = () => {
-    setChatHistory([...chatHistory, { text: searchText, isUser: true }]);
-    setSearchText("");
+  const handlePromptInput = async () => {
+    if (!searchText.trim() || isLoading) return;
+
+    const userMessage = searchText.trim();
+    const updatedHistory = [
+      ...chatHistory,
+      { text: userMessage, isUser: true },
+      { text: "Thinking...", isUser: false },
+    ];
+
+    setSearchText(""); // Clear input
+    setIsLoading(true);
+    setChatHistory(updatedHistory); // Update with user message
+
+    try {
+      const aiResponse = await chat(false, updatedHistory);
+      updatedHistory.pop();
+      setChatHistory([...updatedHistory, { text: aiResponse, isUser: false }]);
+    } catch (error) {
+      console.error("Error calling chat API:", error);
+      setChatHistory([
+        ...updatedHistory,
+        {
+          text: "I'm sorry, I'm having trouble connecting right now. Please try again later.",
+          isUser: false,
+        },
+      ]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
