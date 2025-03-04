@@ -1,5 +1,5 @@
 import { MaterialIcons } from "@expo/vector-icons";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ScrollView,
   Text,
@@ -8,6 +8,8 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
+  Keyboard,
+  Dimensions,
 } from "react-native";
 
 import { chat } from "@/features/Menu/chat";
@@ -21,6 +23,30 @@ const ChatScreen = () => {
       isUser: false,
     },
   ]);
+
+  const [keyboardHeight, setKeyboardHeight] = useState(0);
+  const screenHeight = Dimensions.get("window").height; // Get screen height
+  const scrollViewRef = useRef<ScrollView>(null);
+
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      "keyboardDidShow",
+      (event) => {
+        setKeyboardHeight(event.endCoordinates.height);
+      },
+    );
+    const keyboardDidHideListener = Keyboard.addListener(
+      "keyboardDidHide",
+      () => {
+        setKeyboardHeight(0);
+      },
+    );
+
+    return () => {
+      keyboardDidShowListener.remove();
+      keyboardDidHideListener.remove();
+    };
+  }, []);
 
   const handleSearchTextChange = (text: string) => {
     setSearchText(text);
@@ -58,9 +84,24 @@ const ChatScreen = () => {
     }
   };
 
+  useEffect(() => {
+    if (scrollViewRef.current) {
+      scrollViewRef.current.scrollToEnd({ animated: true });
+    }
+  }, [chatHistory]); // Scroll to end whenever chatHistory changes
+
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.chatContainer}>
+      <ScrollView
+        ref={scrollViewRef}
+        style={[
+          styles.chatContainer,
+          {
+            height:
+              keyboardHeight > 0 ? screenHeight * 0.75 - keyboardHeight : "88%",
+          },
+        ]}
+      >
         {chatHistory.map((message, index) => (
           <View
             key={index}
@@ -111,7 +152,7 @@ const ChatScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    position: "absolute",
+    flexDirection: "column",
     paddingVertical: 80,
     top: 0,
     left: 0,
@@ -119,6 +160,7 @@ const styles = StyleSheet.create({
     bottom: 80,
   },
   chatContainer: {
+    height: "88%",
     padding: 20,
   },
   messageContainer: {
@@ -154,7 +196,6 @@ const styles = StyleSheet.create({
     borderColor: "#5A5A5A",
   },
   searchContainer: {
-    position: "absolute",
     flexDirection: "row",
     bottom: 0,
     left: 0,
@@ -162,6 +203,7 @@ const styles = StyleSheet.create({
     height: 70,
     paddingHorizontal: 20,
     justifyContent: "space-between",
+    alignItems: "center",
   },
   searchBar: {
     width: "80%",
