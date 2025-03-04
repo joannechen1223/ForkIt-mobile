@@ -17,6 +17,8 @@ const ListItemDetailScreen = () => {
   const { id } = useLocalSearchParams();
   const item = useSelector((state: any) => state.menu.items[id[0]]);
 
+  console.log(id);
+
   return (
     <View style={{ paddingTop: 60, paddingBottom: 130 }}>
       <View style={styles.header}>
