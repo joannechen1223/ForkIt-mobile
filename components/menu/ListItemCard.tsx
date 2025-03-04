@@ -5,7 +5,15 @@ import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import AllergenIcon from "@/components/AllergenIcon";
 import ingredientsDict from "@/data/ingredients";
 
-const ListItemCard = ({ item }: { item: any }) => {
+const ListItemCard = ({
+  item,
+  setOpenIngredientModal,
+  setIngredientName,
+}: {
+  item: any;
+  setOpenIngredientModal: (open: boolean) => void;
+  setIngredientName: (name: string) => void;
+}) => {
   const router = useRouter();
 
   const {
@@ -29,7 +37,12 @@ const ListItemCard = ({ item }: { item: any }) => {
                 {ingredientsDict[
                   ingredient as keyof typeof ingredientsDict
                 ] && (
-                  <TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => {
+                      setIngredientName(ingredient);
+                      setOpenIngredientModal(true);
+                    }}
+                  >
                     <MaterialIcons
                       name="search"
                       size={16}

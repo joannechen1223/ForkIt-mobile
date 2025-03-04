@@ -1,4 +1,5 @@
 import { MaterialIcons } from "@expo/vector-icons";
+import { useState } from "react";
 import {
   ScrollView,
   Text,
@@ -14,6 +15,8 @@ import FlagIcon from "@/components/FlagIcon";
 import { HorizontalLine } from "@/components/ui/HorizontalLine";
 import ingredientsDict from "@/data/ingredients";
 
+import IngredientModal from "./IngredientModal";
+
 const ListItemDetail = ({ item }: { item: any }) => {
   const {
     itemName,
@@ -26,6 +29,14 @@ const ListItemDetail = ({ item }: { item: any }) => {
     newFlavor,
   } = item;
 
+  const [openIngredientModal, setOpenIngredientModal] = useState(false);
+  const [ingredientName, setIngredientName] = useState("");
+
+  const handleIngredientPress = (ingredient: string) => {
+    setIngredientName(ingredient);
+    setOpenIngredientModal(true);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.itemName}>{itemName}</Text>
@@ -35,7 +46,9 @@ const ListItemDetail = ({ item }: { item: any }) => {
           <Text key={ingredient + index} style={styles.ingredientText}>
             {ingredient}
             {ingredientsDict[ingredient as keyof typeof ingredientsDict] && (
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => handleIngredientPress(ingredient)}
+              >
                 <MaterialIcons
                   name="search"
                   size={16}
@@ -115,6 +128,16 @@ const ListItemDetail = ({ item }: { item: any }) => {
       <TouchableOpacity style={[styles.button, { backgroundColor: "#FFFACD" }]}>
         <Text style={styles.buttonText}>Leave a Review</Text>
       </TouchableOpacity>
+      {ingredientName && (
+        <>
+          <Text>{ingredientName}</Text>
+          <IngredientModal
+            ingredientName={ingredientName}
+            open={openIngredientModal}
+            setOpen={setOpenIngredientModal}
+          />
+        </>
+      )}
     </View>
   );
 };

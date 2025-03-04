@@ -10,6 +10,7 @@ import {
 import { useSelector } from "react-redux";
 
 import SimpleScrollView from "@/components/SimpleScrollView";
+import IngredientModal from "@/components/menu/IngredientModal";
 import ListItemCard from "@/components/menu/ListItemCard";
 import { HorizontalLine } from "@/components/ui/HorizontalLine";
 
@@ -18,6 +19,9 @@ const screenWidth = Dimensions.get("window").width;
 const ListScreen = () => {
   const { groups, items } = useSelector((state: any) => state.menu);
   const [activeGroup, setActiveGroup] = useState<number>(groups[0].groupId);
+
+  const [openIngredientModal, setOpenIngredientModal] = useState(false);
+  const [ingredientName, setIngredientName] = useState("");
 
   return (
     <SimpleScrollView>
@@ -51,11 +55,22 @@ const ListScreen = () => {
       <View style={styles.contentContainer}>
         {groups[activeGroup].itemIds.map((itemId: number) => (
           <React.Fragment key={itemId}>
-            <ListItemCard item={items[itemId]} />
+            <ListItemCard
+              item={items[itemId]}
+              setOpenIngredientModal={setOpenIngredientModal}
+              setIngredientName={setIngredientName}
+            />
             <HorizontalLine />
           </React.Fragment>
         ))}
       </View>
+      {openIngredientModal && (
+        <IngredientModal
+          ingredientName={ingredientName}
+          open={openIngredientModal}
+          setOpen={setOpenIngredientModal}
+        />
+      )}
     </SimpleScrollView>
   );
 };

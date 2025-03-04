@@ -123,10 +123,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "flex-end",
   },
-  closeButtonText: {
-    color: "white",
-    fontSize: 16,
-  },
 });
 
 export default PicScreen;
