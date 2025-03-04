@@ -48,7 +48,11 @@ const ListItemDetail = ({ item }: { item: any }) => {
           </Text>
         ))}
       </View>
-      <ScrollView horizontal contentContainerStyle={styles.imageContainer}>
+      <ScrollView
+        horizontal
+        contentContainerStyle={styles.imageContainer}
+        showsHorizontalScrollIndicator={false}
+      >
         {imageUrls &&
           imageUrls.map((imageUrl: ImageSourcePropType, index: number) => (
             <Image key={index} source={imageUrl} style={styles.image} />
