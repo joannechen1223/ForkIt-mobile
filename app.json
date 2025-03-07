@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "startup-studio-2025-interactive-menu-mobile",
-    "slug": "startup-studio-2025-interactive-menu-mobile",
-    "version": "1.0.0",
+    "name": "Fork It",
+    "slug": "fork-it",
+    "version": "0.1.0-alpha",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -10,14 +10,14 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.startupstudio2025interactivemenumobile"
+      "bundleIdentifier": "com.joannechen1223.forkit"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.startupstudio2025interactivemenumobile"
+      "package": "com.joannechen1223.forkit"
     },
     "web": {
       "bundler": "metro",
@@ -32,7 +32,7 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#ffac1c"
         }
       ]
     ],
