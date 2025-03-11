@@ -12,10 +12,13 @@ import {
 import { useSelector } from "react-redux";
 
 import { HighlightButton } from "@/components/menu/Buttons";
+import MenuCamera from "@/components/menu/Camera";
 import ItemDetail from "@/components/menu/ItemDetail";
 
 const PicScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [photoUri, setPhotoUri] = useState<string | null>(null); // State to store photo URI
+
   const item = useSelector((state: any) => state.menu.items[1]);
 
   const openModal = () => {
@@ -26,19 +29,31 @@ const PicScreen = () => {
     setModalVisible(false);
   };
 
+  if (!photoUri) {
+    return <MenuCamera setPhotoUri={setPhotoUri} />;
+  }
+
   return (
     <ScrollView horizontal contentContainerStyle={styles.scrollViewContent}>
-      <ImageBackground
-        source={require("@/assets/images/menu-pic.jpg")}
-        style={styles.background}
-      >
+      <ImageBackground source={{ uri: photoUri }} style={styles.background}>
         <TouchableOpacity
           style={styles.textContainer}
           onPress={() => openModal()}
         >
           <Text style={styles.text}>Soupe à l'Oignon</Text>
         </TouchableOpacity>
-        {/* Add more content here */}
+        <View style={styles.buttonGroup}>
+          <View style={styles.aiSummary}>
+            <TouchableOpacity style={styles.aiSummaryButton}>
+              <Text>AI Summary</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.retake}>
+            <TouchableOpacity style={styles.retakeButton}>
+              <Text>Retake</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </ImageBackground>
       <Modal
         animationType="slide"
@@ -70,7 +85,7 @@ const styles = StyleSheet.create({
     paddingBottom: 80,
   },
   background: {
-    width: 1000,
+    width: "100%",
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
@@ -87,6 +102,45 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
   },
+  buttonGroup: {
+    position: "absolute",
+    bottom: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+    height: 45,
+  },
+  aiSummary: {
+    borderWidth: 1,
+    borderColor: "white",
+    borderRadius: 5,
+    padding: 10,
+  },
+  retake: {
+    borderWidth: 7,
+    borderColor: "white",
+    borderRadius: 20,
+    width: 100,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  aiSummaryButton: {
+    backgroundColor: "white",
+    padding: 10,
+    borderRadius: 5,
+  },
+  retakeButton: {
+    width: "100%",
+    backgroundColor: "white",
+    padding: 10,
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: "#552300",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
   modalOverlay: {
     flex: 1,
     justifyContent: "center",
