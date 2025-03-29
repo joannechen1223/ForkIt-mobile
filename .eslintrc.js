@@ -8,7 +8,13 @@ module.exports = {
   },
   settings: {
     "import/resolver": {
-      typescript: {}, // this will use your tsconfig.json paths
+      typescript: {
+        project: "./mobile/tsconfig.json",
+      },
+      alias: {
+        "@": "./mobile",
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
     },
   },
   overrides: [

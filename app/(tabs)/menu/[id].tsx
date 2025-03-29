@@ -10,9 +10,10 @@ import ItemDetail from "@/components/menu/ItemDetail";
 const ListItemDetailScreen = () => {
   const router = useRouter();
   const { id } = useLocalSearchParams();
-  const item = useSelector((state: any) => state.menu.items[id[0]]);
+  const item = useSelector((state: any) => state.menu.items[id as string]);
 
   console.log(id);
+  console.log(item);
 
   return (
     <View style={{ paddingTop: 60, paddingBottom: 130 }}>

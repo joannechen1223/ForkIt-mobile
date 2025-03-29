@@ -23,6 +23,11 @@ const ListScreen = () => {
   const [openIngredientModal, setOpenIngredientModal] = useState(false);
   const [ingredientName, setIngredientName] = useState("");
 
+  const handleCloseIngredientModal = () => {
+    setOpenIngredientModal(false);
+    setIngredientName("");
+  };
+
   return (
     <SimpleScrollView>
       <ScrollView
@@ -68,7 +73,7 @@ const ListScreen = () => {
         <IngredientModal
           ingredientName={ingredientName}
           open={openIngredientModal}
-          setOpen={setOpenIngredientModal}
+          handleClose={handleCloseIngredientModal}
         />
       )}
     </SimpleScrollView>

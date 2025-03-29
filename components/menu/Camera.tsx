@@ -4,8 +4,10 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
 const MenuCamera = ({
   setPhotoUri,
+  setPhotoOrientation,
 }: {
   setPhotoUri: (value: string) => void;
+  setPhotoOrientation: (value: string) => void;
 }) => {
   const [permission, requestPermission] = useCameraPermissions();
   const cameraRef = React.useRef<CameraView>(null);
@@ -16,6 +18,9 @@ const MenuCamera = ({
         const photo = await cameraRef.current.takePictureAsync();
         if (photo) {
           setPhotoUri(photo.uri); // Store the photo URI in state
+          setPhotoOrientation(
+            photo.width > photo.height ? "landscape" : "portrait",
+          );
         } else {
           console.error("No photo data received");
         }

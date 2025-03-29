@@ -14,24 +14,21 @@ import ingredientsDict from "@/data/ingredients";
 const IngredientModal = ({
   ingredientName,
   open,
-  setOpen,
+  handleClose,
 }: {
   ingredientName: string;
   open: boolean;
-  setOpen: (open: boolean) => void;
+  handleClose: () => void;
 }) => {
   return (
     <Modal
       visible={open}
       transparent={true}
       animationType="slide"
-      onRequestClose={() => setOpen(false)}
+      onRequestClose={handleClose}
     >
       <View style={styles.modalOverlay}>
-        <TouchableOpacity
-          style={styles.closeButton}
-          onPress={() => setOpen(false)}
-        >
+        <TouchableOpacity style={styles.closeButton} onPress={handleClose}>
           <MaterialIcons name="close" size={24} color="black" />
         </TouchableOpacity>
         <View style={styles.modalContent}>

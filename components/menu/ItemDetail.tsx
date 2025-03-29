@@ -37,6 +37,11 @@ const ListItemDetail = ({ item }: { item: any }) => {
     setOpenIngredientModal(true);
   };
 
+  const handleCloseIngredientModal = () => {
+    setOpenIngredientModal(false);
+    setIngredientName("");
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.itemName}>{itemName}</Text>
@@ -134,7 +139,7 @@ const ListItemDetail = ({ item }: { item: any }) => {
           <IngredientModal
             ingredientName={ingredientName}
             open={openIngredientModal}
-            setOpen={setOpenIngredientModal}
+            handleClose={handleCloseIngredientModal}
           />
         </>
       )}

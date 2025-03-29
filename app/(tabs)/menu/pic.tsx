@@ -18,6 +18,7 @@ import ItemDetail from "@/components/menu/ItemDetail";
 const PicScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [photoUri, setPhotoUri] = useState<string | null>(null); // State to store photo URI
+  const [photoOrientation, setPhotoOrientation] = useState<string | null>(null);
 
   const item = useSelector((state: any) => state.menu.items[1]);
 
@@ -29,32 +30,62 @@ const PicScreen = () => {
     setModalVisible(false);
   };
 
+  const handleRetake = () => {
+    setPhotoUri(null);
+    setPhotoOrientation(null);
+  };
+
   if (!photoUri) {
-    return <MenuCamera setPhotoUri={setPhotoUri} />;
+    return (
+      <MenuCamera
+        setPhotoUri={setPhotoUri}
+        setPhotoOrientation={setPhotoOrientation}
+      />
+    );
   }
 
   return (
-    <ScrollView horizontal contentContainerStyle={styles.scrollViewContent}>
-      <ImageBackground source={{ uri: photoUri }} style={styles.background}>
-        <TouchableOpacity
-          style={styles.textContainer}
-          onPress={() => openModal()}
+    <View style={styles.container}>
+      <ScrollView
+        horizontal
+        contentContainerStyle={
+          (styles.scrollViewContent,
+          photoOrientation === "landscape"
+            ? { width: 1400 }
+            : { width: "100%" })
+        }
+      >
+        <ImageBackground
+          source={{ uri: photoUri }}
+          style={[
+            styles.background,
+            {
+              width: photoOrientation === "landscape" ? 1400 : "100%",
+              height: "100%",
+            },
+          ]}
+          resizeMode="contain"
         >
-          <Text style={styles.text}>Soupe à l'Oignon</Text>
-        </TouchableOpacity>
-        <View style={styles.buttonGroup}>
-          <View style={styles.aiSummary}>
-            <TouchableOpacity style={styles.aiSummaryButton}>
-              <Text>AI Summary</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.retake}>
-            <TouchableOpacity style={styles.retakeButton}>
-              <Text>Retake</Text>
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity
+            style={styles.textContainer}
+            onPress={() => openModal()}
+          >
+            <Text style={styles.text}>Soupe à l'Oignon</Text>
+          </TouchableOpacity>
+        </ImageBackground>
+      </ScrollView>
+      <View style={styles.buttonGroup}>
+        <View style={styles.aiSummary}>
+          <TouchableOpacity style={styles.aiSummaryButton}>
+            <Text style={styles.aiSummaryButtonText}>Menu Summary</Text>
+          </TouchableOpacity>
         </View>
-      </ImageBackground>
+        <View style={styles.retake}>
+          <TouchableOpacity style={styles.retakeButton} onPress={handleRetake}>
+            <Text style={styles.retakeButtonText}>Retake Photo</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
       <Modal
         animationType="slide"
         transparent={true}
@@ -75,17 +106,19 @@ const PicScreen = () => {
           </View>
         </View>
       </Modal>
-    </ScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   scrollViewContent: {
     flexGrow: 1,
     paddingBottom: 80,
   },
   background: {
-    width: "100%",
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
@@ -104,43 +137,65 @@ const styles = StyleSheet.create({
   },
   buttonGroup: {
     position: "absolute",
-    bottom: 10,
+    bottom: 100,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    height: 45,
+    padding: 10,
+    paddingHorizontal: 25,
+    zIndex: 10,
   },
   aiSummary: {
-    borderWidth: 1,
-    borderColor: "white",
-    borderRadius: 5,
-    padding: 10,
+    borderWidth: 7,
+    borderColor: "black",
+    borderRadius: 30,
+    width: 180,
+    height: 60,
+    justifyContent: "center",
+    alignItems: "center",
   },
   retake: {
     borderWidth: 7,
     borderColor: "white",
-    borderRadius: 20,
-    width: 100,
+    borderRadius: 30,
+    width: 150,
+    height: 60,
     justifyContent: "center",
     alignItems: "center",
   },
   aiSummaryButton: {
-    backgroundColor: "white",
+    width: "100%",
+    height: 48,
+    backgroundColor: "black",
     padding: 10,
-    borderRadius: 5,
+    borderRadius: 24,
+    borderWidth: 3,
+    borderColor: "#FFD771",
+    justifyContent: "center",
+    alignItems: "center",
   },
   retakeButton: {
     width: "100%",
+    height: 48,
     backgroundColor: "white",
     padding: 10,
-    borderRadius: 20,
-    borderWidth: 2,
+    borderRadius: 24,
+    borderWidth: 3,
     borderColor: "#552300",
     justifyContent: "center",
     alignItems: "center",
   },
-
+  retakeButtonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#552300",
+  },
+  aiSummaryButtonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#FFD771",
+  },
   modalOverlay: {
     flex: 1,
     justifyContent: "center",

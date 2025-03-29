@@ -40,3 +40,10 @@ app-example
 # Expo prebuild output (managed workflow)
 android/
 ios/
+
+
+.env
+
+# Firebase
+google-services.json
+GoogleService-Info.plist
