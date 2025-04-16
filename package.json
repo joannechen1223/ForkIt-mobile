@@ -11,7 +11,8 @@
     "test": "jest --watchAll",
     "lint": "expo lint",
     "lint:fix": "expo lint --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "eas-build-pre-install": "scripts/decode-google-services.sh"
   },
   "jest": {
     "preset": "jest-expo"
