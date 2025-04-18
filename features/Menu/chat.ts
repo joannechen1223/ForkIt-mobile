@@ -1,5 +1,8 @@
 // Initialize chat endpoint
-const CHAT_ENDPOINT = "https://playground-api.joannechen1223.info/chat";
+import Constants from "expo-constants";
+
+const serverUrl = Constants.expoConfig?.extra?.serverUrl;
+const CHAT_ENDPOINT = `${serverUrl}/chat`;
 
 const generateSystemPrompt = () => {
   return "You are a helpful restaurant assistant. Help customers choose dishes from our menu based on their preferences. Keep responses concise and friendly. These are all available choices: Soupe à l'Oignon (French onion soup), Bisque de Homard (lobster soup), La Salade Niçoise (tuna salad), Prime Steak Tartare (raw beef), Les Escargots (snails), Wagyu Carpaccio (raw beef), Salade Mesclun (goat cheese salad), Salade César (caesar salad), Mousse De Foie Gras (duck liver), Chèvre (goat cheese toast), Saumon Fumé (smoked salmon toast), Avocat Et Tomate (avocado toast), Chia Seed Pudding, Yogurt Parfait, Boucherie Waffles, Pain Perdu (French toast), Eggs Benedict, Eggs Norwegian (with salmon), Steak Aux Oeufs (steak & eggs), Omelette Au Choix (custom omelette), Oeufs Meurette (wine poached eggs), Steak Frites, Moules Dijonnaise (mussels), Coq Au Vin (braised chicken), Saumon Roti (roasted salmon), Les St Jacques Roties (scallops), Le Croque Monsieur (ham & cheese), Le Croque Madame (with egg), Sandwich Au Boeuf (steak sandwich), Boucherie Burger (dry aged beef), Wagyu Burger";
