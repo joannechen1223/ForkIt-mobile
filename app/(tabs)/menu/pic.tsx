@@ -1,5 +1,5 @@
 import { MaterialIcons } from "@expo/vector-icons";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   ScrollView,
   Text,
@@ -8,21 +8,30 @@ import {
   TouchableOpacity,
   Modal,
   View,
+  ActivityIndicator,
 } from "react-native";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { HighlightButton } from "@/components/menu/Buttons";
 import MenuCamera from "@/components/menu/Camera";
 import ItemDetail from "@/components/menu/ItemDetail";
+import { uploadMenu } from "@/features/Menu/camera";
+import getDishes from "@/features/Menu/dishes";
+import { checkMenuReady } from "@/features/Menu/menu";
+import { resetMenu } from "@/features/Menu/menuSlice";
 
 const PicScreen = () => {
+  const dispatch = useDispatch();
   const [modalVisible, setModalVisible] = useState(false);
-  const [photoUri, setPhotoUri] = useState<string | null>(null); // State to store photo URI
-  const [photoOrientation, setPhotoOrientation] = useState<string | null>(null);
+  const photo = useSelector((state: any) => state.menu.photo);
+  const [isUploading, setIsUploading] = useState(false);
+  const [isChecking, setIsChecking] = useState(false);
 
   const item = useSelector((state: any) => state.menu.items[1]);
+  const menu = useSelector((state: any) => state.menu.menu);
+  const dishes = useSelector((state: any) => state.menu.dishes);
 
-  const openModal = () => {
+  const openModal = async () => {
     setModalVisible(true);
   };
 
@@ -31,53 +40,107 @@ const PicScreen = () => {
   };
 
   const handleRetake = () => {
-    setPhotoUri(null);
-    setPhotoOrientation(null);
+    dispatch(resetMenu());
   };
 
-  if (!photoUri) {
-    return (
-      <MenuCamera
-        setPhotoUri={setPhotoUri}
-        setPhotoOrientation={setPhotoOrientation}
-      />
-    );
+  useEffect(() => {
+    let intervalId: NodeJS.Timeout;
+    console.log("isChecking", isChecking);
+
+    if (isChecking && menu?.id && !menu.isReady) {
+      intervalId = setInterval(async () => {
+        const ready = await checkMenuReady(menu.id, dispatch);
+        console.log("ready", ready);
+        if (ready) {
+          await getDishes(menu.id, dispatch);
+          setIsChecking(false);
+          clearInterval(intervalId);
+        }
+      }, 1000);
+    }
+
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [isChecking, menu?.id, menu?.isReady, dispatch]);
+
+  if (!photo.uri) {
+    return <MenuCamera />;
   }
+
+  const handleMenuUpload = async () => {
+    setIsUploading(true);
+    await uploadMenu(photo.uri, dispatch);
+    setIsUploading(false);
+    setIsChecking(true);
+  };
+
+  const isUploadingOrHasMenu = isUploading || menu?.id;
 
   return (
     <View style={styles.container}>
       <ScrollView
         horizontal
         contentContainerStyle={
-          (styles.scrollViewContent,
-          photoOrientation === "landscape"
+          photo.orientation === "landscape"
             ? { width: 1400 }
-            : { width: "100%" })
+            : { width: "100%" }
         }
       >
+        {isUploadingOrHasMenu && <View style={styles.overlay} />}
         <ImageBackground
-          source={{ uri: photoUri }}
+          source={{ uri: photo.uri }}
           style={[
             styles.background,
             {
-              width: photoOrientation === "landscape" ? 1400 : "100%",
+              width: photo.orientation === "landscape" ? 1400 : "100%",
               height: "100%",
             },
           ]}
           resizeMode="contain"
         >
-          <TouchableOpacity
-            style={styles.textContainer}
-            onPress={() => openModal()}
-          >
-            <Text style={styles.text}>Soupe à l'Oignon</Text>
-          </TouchableOpacity>
+          {isUploading && (
+            <View style={styles.uploadingContainer}>
+              <ActivityIndicator size="large" color="#FFD771" />
+              <Text style={styles.uploadingText}>Uploading...</Text>
+            </View>
+          )}
+          <View style={styles.dishContainerWrapper}>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.dishContainer}
+            >
+              {Object.values(dishes).map((dish: any) => {
+                // const position = dish.position;
+                // const x =
+                //   position?.x && photoDimensions?.width
+                //     ? (position.x / photoDimensions.width) *
+                //       scrollViewDimensions.width
+                //     : 0;
+                // const y =
+                //   position?.y && photoDimensions?.height
+                //     ? (position.y / photoDimensions.height) *
+                //       scrollViewDimensions.height
+                //     : 0;
+                // console.log(dish.name, x, y);
+                return (
+                  <TouchableOpacity onPress={() => openModal()} key={dish.id}>
+                    <Text style={styles.text}>{dish.translationName}</Text>
+                  </TouchableOpacity>
+                );
+              })}
+            </ScrollView>
+          </View>
         </ImageBackground>
       </ScrollView>
       <View style={styles.buttonGroup}>
-        <View style={styles.aiSummary}>
-          <TouchableOpacity style={styles.aiSummaryButton}>
-            <Text style={styles.aiSummaryButtonText}>Menu Summary</Text>
+        <View style={styles.uploadMenu}>
+          <TouchableOpacity
+            style={styles.uploadMenuButton}
+            onPress={handleMenuUpload}
+          >
+            <Text style={styles.uploadMenuButtonText}>Upload Menu</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.retake}>
@@ -123,16 +186,37 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  textContainer: {
+  overlay: {
     position: "absolute",
-    left: 70,
-    top: 270,
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(255, 255, 255, 0.3)",
+    zIndex: 1,
+  },
+  dishContainerWrapper: {
+    position: "absolute",
+    top: 80,
+    left: 0,
+    padding: 30,
+    width: "100%",
+    height: "70%",
+    zIndex: 100,
+  },
+  dishContainer: {
+    flexDirection: "column",
+    flexWrap: "wrap",
+    gap: 10,
   },
   text: {
     color: "white",
-    fontSize: 18,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    padding: 10,
+    fontSize: 11,
+    backgroundColor: "rgba(0, 0, 0, 0.7)",
+    width: 140,
+    flexWrap: "wrap",
+    flexDirection: "row",
+    padding: 5,
     borderRadius: 5,
   },
   buttonGroup: {
@@ -146,7 +230,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     zIndex: 10,
   },
-  aiSummary: {
+  uploadMenu: {
     borderWidth: 7,
     borderColor: "black",
     borderRadius: 30,
@@ -164,7 +248,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  aiSummaryButton: {
+  uploadMenuButton: {
     width: "100%",
     height: 48,
     backgroundColor: "black",
@@ -191,7 +275,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#552300",
   },
-  aiSummaryButtonText: {
+  uploadMenuButtonText: {
     fontSize: 16,
     fontWeight: "bold",
     color: "#FFD771",
@@ -231,6 +315,25 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "flex-end",
+  },
+  uploadingContainer: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 3,
+  },
+  uploadingText: {
+    fontSize: 18,
+    color: "white",
+    backgroundColor: "rgba(0, 0, 0, 0.7)",
+    padding: 10,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    marginTop: 10,
   },
 });
 

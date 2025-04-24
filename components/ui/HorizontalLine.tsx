@@ -11,6 +11,7 @@ interface HorizontalLineProps {
 export const HorizontalLine: React.FC<HorizontalLineProps> = ({
   color = "#e0e0e0",
   thickness = 1,
+  width = "100%",
   style = {},
 }) => {
   // Original approach for other platforms
@@ -21,6 +22,7 @@ export const HorizontalLine: React.FC<HorizontalLineProps> = ({
         {
           backgroundColor: color,
           height: thickness,
+          width: width,
         },
         style,
       ]}

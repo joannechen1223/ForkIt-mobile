@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
+import { RootState } from "@/app/store";
 import { IconSymbol, IconSymbolName } from "@/components/ui/IconSymbol";
 import { MenuType } from "@/features/Menu/constants";
 import { setMenuType } from "@/features/Menu/menuSlice";
@@ -9,16 +10,19 @@ const Button = ({
   icon,
   text,
   active,
+  disabled,
   onPress,
 }: {
   icon: IconSymbolName;
   text: string;
   active: boolean;
+  disabled: boolean;
   onPress: () => void;
 }) => {
   return (
     <TouchableOpacity
       style={[styles.button, active && styles.activeButton]}
+      disabled={disabled}
       onPress={onPress}
     >
       <IconSymbol
@@ -33,6 +37,9 @@ const Button = ({
 
 const TopBar = ({ menuType }: { menuType: string }) => {
   const dispatch = useDispatch();
+  const hasMenu = useSelector(
+    (state: RootState) => state.menu.menu.id !== null,
+  );
 
   const handleButtonPress = (menuType: string) => {
     dispatch(setMenuType(menuType));
@@ -45,18 +52,21 @@ const TopBar = ({ menuType }: { menuType: string }) => {
         text="Ask"
         active={menuType === MenuType.Ask}
         onPress={() => handleButtonPress(MenuType.Ask)}
+        disabled={!hasMenu}
       />
       <Button
         icon="doc.text"
         text="List"
         active={menuType === MenuType.List}
         onPress={() => handleButtonPress(MenuType.List)}
+        disabled={!hasMenu}
       />
       <Button
         icon="photo"
         text="Pic"
         active={menuType === MenuType.Pic}
         onPress={() => handleButtonPress(MenuType.Pic)}
+        disabled={false}
       />
     </View>
   );

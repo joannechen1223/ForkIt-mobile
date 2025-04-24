@@ -1,67 +1,39 @@
 import React, { useState } from "react";
-import {
-  ScrollView,
-  Text,
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Dimensions,
-} from "react-native";
+import { Text, StyleSheet, View, ActivityIndicator } from "react-native";
 import { useSelector } from "react-redux";
 
 import SimpleScrollView from "@/components/SimpleScrollView";
 import IngredientModal from "@/components/menu/IngredientModal";
-import ListItemCard from "@/components/menu/ListItemCard";
+import ListDishCard from "@/components/menu/ListItemCard";
 import { HorizontalLine } from "@/components/ui/HorizontalLine";
 
-const screenWidth = Dimensions.get("window").width;
-
 const ListScreen = () => {
-  const { groups, items } = useSelector((state: any) => state.menu);
-  const [activeGroup, setActiveGroup] = useState<number>(groups[0].groupId);
-
   const [openIngredientModal, setOpenIngredientModal] = useState(false);
   const [ingredientName, setIngredientName] = useState("");
+  const isReady = useSelector((state: any) => state.menu.menu.isReady);
+  const dishes = useSelector((state: any) => state.menu.dishes);
 
   const handleCloseIngredientModal = () => {
     setOpenIngredientModal(false);
     setIngredientName("");
   };
 
+  if (!isReady) {
+    return (
+      <View style={styles.contentContainer}>
+        <ActivityIndicator size="large" color="#FFD771" />
+        <Text style={styles.loadingText}>Preparing menu information...</Text>
+      </View>
+    );
+  }
+
   return (
     <SimpleScrollView>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={styles.menuWrapper}
-      >
-        <View style={styles.menuTabContainer}>
-          {groups.map((group: { groupId: number; groupName: string }) => (
-            <TouchableOpacity
-              key={group.groupId}
-              onPress={() => setActiveGroup(group.groupId)}
-              style={[
-                styles.menuTab,
-                activeGroup === group.groupId && styles.menuTabActive,
-              ]}
-            >
-              <Text
-                style={[
-                  styles.menuTabText,
-                  activeGroup === group.groupId && styles.menuTabTextActive,
-                ]}
-              >
-                {group.groupName}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-      </ScrollView>
       <View style={styles.contentContainer}>
-        {groups[activeGroup].itemIds.map((itemId: number) => (
-          <React.Fragment key={itemId}>
-            <ListItemCard
-              item={items[itemId]}
+        {Object.values(dishes).map((dish: any) => (
+          <React.Fragment key={dish.id}>
+            <ListDishCard
+              dish={dish}
               setOpenIngredientModal={setOpenIngredientModal}
               setIngredientName={setIngredientName}
             />
@@ -110,7 +82,16 @@ const styles = StyleSheet.create({
     color: "#593c0a",
   },
   contentContainer: {
-    width: screenWidth,
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  loadingText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#593c0a",
+    marginTop: 20,
   },
 });
 

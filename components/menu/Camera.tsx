@@ -1,14 +1,12 @@
 import { CameraView, useCameraPermissions } from "expo-camera";
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { useDispatch } from "react-redux";
 
-const MenuCamera = ({
-  setPhotoUri,
-  setPhotoOrientation,
-}: {
-  setPhotoUri: (value: string) => void;
-  setPhotoOrientation: (value: string) => void;
-}) => {
+import { setPhoto } from "@/features/Menu/menuSlice";
+
+const MenuCamera = () => {
+  const dispatch = useDispatch();
   const [permission, requestPermission] = useCameraPermissions();
   const cameraRef = React.useRef<CameraView>(null);
 
@@ -17,9 +15,16 @@ const MenuCamera = ({
       try {
         const photo = await cameraRef.current.takePictureAsync();
         if (photo) {
-          setPhotoUri(photo.uri); // Store the photo URI in state
-          setPhotoOrientation(
-            photo.width > photo.height ? "landscape" : "portrait",
+          dispatch(
+            setPhoto({
+              uri: photo.uri,
+              orientation:
+                photo.width > photo.height ? "landscape" : "portrait",
+              dimensions: {
+                width: photo.width,
+                height: photo.height,
+              },
+            }),
           );
         } else {
           console.error("No photo data received");

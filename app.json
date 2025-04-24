@@ -73,7 +73,7 @@
       "eas": {
         "projectId": "65798b9a-d189-4d56-8ccf-0f7ce87d30cf"
       },
-      "serverUrl": "https://api.forkit.site/api"
+      "serverUrl": "http://100.110.142.160:5001/api"
     }
   }
 }
