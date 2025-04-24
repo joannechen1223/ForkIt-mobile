@@ -12,6 +12,8 @@ export type Dish = {
   allergens?: string[];
   history?: string;
   price?: number;
+  newFlavor?: string;
+  flavorMapping?: string;
   imageUrls?: string[];
   position?: {
     x: number;

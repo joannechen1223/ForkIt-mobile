@@ -11,15 +11,18 @@ import {
   Keyboard,
   Dimensions,
 } from "react-native";
+import { useSelector } from "react-redux";
 
 import { chat } from "@/features/Menu/chat";
 
 const ChatScreen = () => {
+  const menu = useSelector((state: any) => state.menu.menu);
+  const dishes = useSelector((state: any) => state.menu.dishes);
   const [searchText, setSearchText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [chatHistory, setChatHistory] = useState([
     {
-      text: "Hi! You can ask me anything about Boucherie's menu",
+      text: `Hi! You can ask me anything about ${menu?.restaurantName}'s menu`,
       isUser: false,
     },
   ]);
@@ -67,7 +70,7 @@ const ChatScreen = () => {
     setChatHistory(updatedHistory); // Update with user message
 
     try {
-      const aiResponse = await chat(false, updatedHistory);
+      const aiResponse = await chat(menu, dishes, updatedHistory);
       updatedHistory.pop();
       setChatHistory([...updatedHistory, { text: aiResponse, isUser: false }]);
     } catch (error) {

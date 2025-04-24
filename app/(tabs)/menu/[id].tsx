@@ -7,13 +7,13 @@ import { useSelector } from "react-redux";
 import { HighlightButton } from "@/components/menu/Buttons";
 import ItemDetail from "@/components/menu/ItemDetail";
 
-const ListItemDetailScreen = () => {
+const ListDishDetailScreen = () => {
   const router = useRouter();
   const { id } = useLocalSearchParams();
-  const item = useSelector((state: any) => state.menu.items[id as string]);
+  const dish = useSelector((state: any) => state.menu.dishes[id as string]);
 
   console.log(id);
-  console.log(item);
+  console.log(dish);
 
   return (
     <View style={{ paddingTop: 60, paddingBottom: 130 }}>
@@ -28,7 +28,7 @@ const ListItemDetailScreen = () => {
         <HighlightButton />
       </View>
       <ScrollView contentContainerStyle={styles.container}>
-        <ItemDetail item={item} />
+        <ItemDetail dish={dish} />
       </ScrollView>
     </View>
   );
@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListItemDetailScreen;
+export default ListDishDetailScreen;

@@ -46,7 +46,12 @@ const TopBar = ({ menuType }: { menuType: string }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        { backgroundColor: hasMenu ? "#f9f7ec" : "#DDDDDD" },
+      ]}
+    >
       <Button
         icon="message"
         text="Ask"
@@ -84,7 +89,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
     zIndex: 1000,
-    backgroundColor: "#f9f7ec",
   },
   button: {
     backgroundColor: "transparent",

@@ -27,16 +27,19 @@ const PicScreen = () => {
   const [isUploading, setIsUploading] = useState(false);
   const [isChecking, setIsChecking] = useState(false);
 
-  const item = useSelector((state: any) => state.menu.items[1]);
+  // const item = useSelector((state: any) => state.menu.items[1]);
   const menu = useSelector((state: any) => state.menu.menu);
   const dishes = useSelector((state: any) => state.menu.dishes);
+  const [selectedDishId, setSelectedDishId] = useState<number | null>(null);
 
-  const openModal = async () => {
+  const openModal = async (dishId: number) => {
+    setSelectedDishId(dishId);
     setModalVisible(true);
   };
 
   const closeModal = () => {
     setModalVisible(false);
+    setSelectedDishId(null);
   };
 
   const handleRetake = () => {
@@ -125,7 +128,10 @@ const PicScreen = () => {
                 //     : 0;
                 // console.log(dish.name, x, y);
                 return (
-                  <TouchableOpacity onPress={() => openModal()} key={dish.id}>
+                  <TouchableOpacity
+                    onPress={() => openModal(dish.id)}
+                    key={dish.id}
+                  >
                     <Text style={styles.text}>{dish.translationName}</Text>
                   </TouchableOpacity>
                 );
@@ -164,7 +170,7 @@ const PicScreen = () => {
           </View>
           <View style={styles.modalContent}>
             <ScrollView showsVerticalScrollIndicator={false}>
-              <ItemDetail item={item} />
+              {selectedDishId && <ItemDetail dish={dishes[selectedDishId]} />}
             </ScrollView>
           </View>
         </View>

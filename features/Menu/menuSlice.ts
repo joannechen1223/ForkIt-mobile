@@ -77,6 +77,8 @@ const menuSlice = createSlice({
           ingredients: dish.ingredients,
           allergens: dish.allergens,
           history: dish.history,
+          newFlavor: dish.new_flavor,
+          flavorMapping: dish.flavor_profile,
           price: dish.price,
           imageUrl: dish.image_url,
           translationName: dish.translation_name,

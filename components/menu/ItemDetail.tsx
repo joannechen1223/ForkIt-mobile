@@ -1,5 +1,6 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import { useState } from "react";
+import React from "react";
 import {
   ScrollView,
   Text,
@@ -7,27 +8,26 @@ import {
   View,
   StyleSheet,
   Image,
-  ImageSourcePropType,
 } from "react-native";
 
 import AllergenIcon from "@/components/AllergenIcon";
 import FlagIcon from "@/components/FlagIcon";
 import { HorizontalLine } from "@/components/ui/HorizontalLine";
 import ingredientsDict from "@/data/ingredients";
+import { Dish } from "@/features/Menu/dishes";
 
 import IngredientModal from "./IngredientModal";
 
-const ListItemDetail = ({ item }: { item: any }) => {
+const ListDishDetail = ({ dish }: { dish: Dish }) => {
   const {
-    itemName,
+    name,
     translationName,
     ingredients,
-    imageUrls,
     allergens,
     description,
-    mapping,
+    flavorMapping,
     newFlavor,
-  } = item;
+  } = dish;
 
   const [openIngredientModal, setOpenIngredientModal] = useState(false);
   const [ingredientName, setIngredientName] = useState("");
@@ -44,10 +44,10 @@ const ListItemDetail = ({ item }: { item: any }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.itemName}>{itemName}</Text>
+      <Text style={styles.itemName}>{name}</Text>
       <Text style={styles.translationName}>{translationName}</Text>
       <View style={styles.ingredients}>
-        {ingredients.map((ingredient: string, index: number) => (
+        {ingredients?.map((ingredient: string, index: number) => (
           <Text key={ingredient + index} style={styles.ingredientText}>
             {ingredient}
             {ingredientsDict[ingredient as keyof typeof ingredientsDict] && (
@@ -71,14 +71,18 @@ const ListItemDetail = ({ item }: { item: any }) => {
         contentContainerStyle={styles.imageContainer}
         showsHorizontalScrollIndicator={false}
       >
-        {imageUrls &&
+        <Image
+          source={require("@/assets/food/hors_doeuvres/soupe_a_loignon.webp")} // placeholder
+          style={styles.image}
+        />
+        {/* {imageUrls &&
           imageUrls.map((imageUrl: ImageSourcePropType, index: number) => (
             <Image key={index} source={imageUrl} style={styles.image} />
-          ))}
+          ))} */}
       </ScrollView>
       <View style={styles.allergensContainer}>
         <Text style={styles.allergensTitle}>Allergens: </Text>
-        {allergens.map((allergen: string) => (
+        {allergens?.map((allergen: string) => (
           <AllergenIcon
             key={allergen}
             allergen={allergen as "Gluten" | "Dairy" | "Nuts"}
@@ -101,38 +105,27 @@ const ListItemDetail = ({ item }: { item: any }) => {
         <Text style={[styles.flavorMappingText, { fontWeight: "bold" }]}>
           American version of it will be:
         </Text>
-        <Text style={styles.flavorMappingText}>{mapping}</Text>
+        <Text style={styles.flavorMappingText}>{flavorMapping}</Text>
       </View>
       <View style={styles.flavorMappingContainer}>
         <View style={styles.flavorMappingTitleContainer}>
-          <FlagIcon countryCode="FR" size={20} />
+          <View style={styles.aiChatIconContainer}>
+            <Image
+              source={require("@/assets/icons/aiChat.png")}
+              style={styles.aiChatIcon}
+            />
+          </View>
           <Text style={styles.flavorMappingTitle}>What's new and exciting</Text>
         </View>
-        {newFlavor && (
-          <>
-            {newFlavor.map((flavor: any) => (
-              <Text key={flavor.name}>
-                <Text
-                  style={[styles.flavorMappingText, { fontWeight: "bold" }]}
-                >
-                  {flavor.name}
-                </Text>
-                <Text style={styles.flavorMappingText}>
-                  {" - "}
-                  {flavor.description}
-                </Text>
-              </Text>
-            ))}
-          </>
-        )}
+        {newFlavor && <Text style={styles.flavorMappingText}>{newFlavor}</Text>}
       </View>
       <HorizontalLine color="#B48B6E" />
-      <TouchableOpacity style={[styles.button, { backgroundColor: "#D1CCFF" }]}>
+      {/* <TouchableOpacity style={[styles.button, { backgroundColor: "#D1CCFF" }]}>
         <Text style={styles.buttonText}>135 Reviews</Text>
       </TouchableOpacity>
       <TouchableOpacity style={[styles.button, { backgroundColor: "#FFFACD" }]}>
         <Text style={styles.buttonText}>Leave a Review</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       {ingredientName && (
         <>
           <Text>{ingredientName}</Text>
@@ -219,6 +212,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: "Times New Roman",
   },
+  aiChatIcon: {
+    width: 20,
+    height: 20,
+  },
+  aiChatIconContainer: {
+    backgroundColor: "#8DD0C5",
+    padding: 5,
+    borderRadius: 20,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   button: {
     padding: 20,
     borderRadius: 30,
@@ -229,4 +233,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListItemDetail;
+export default ListDishDetail;
