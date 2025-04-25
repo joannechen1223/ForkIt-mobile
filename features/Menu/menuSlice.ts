@@ -64,6 +64,7 @@ const menuSlice = createSlice({
           name: dish.dish_name,
           translationName: dish.translation_name,
           position: dish.position,
+          highlight: false,
         };
       });
       state.dishes = dishes;
@@ -102,6 +103,9 @@ const menuSlice = createSlice({
     setMenuReady: (state, action) => {
       state.menu.isReady = action.payload.isReady;
     },
+    setHighlight: (state, action) => {
+      state.dishes[action.payload.dishId].highlight = action.payload.highlight;
+    },
   },
 });
 
@@ -113,5 +117,6 @@ export const {
   resetMenu,
   setMenuReady,
   setDishesDetails,
+  setHighlight,
 } = menuSlice.actions;
 export default menuSlice.reducer;

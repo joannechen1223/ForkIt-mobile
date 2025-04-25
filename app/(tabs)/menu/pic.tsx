@@ -132,7 +132,18 @@ const PicScreen = () => {
                     onPress={() => openModal(dish.id)}
                     key={dish.id}
                   >
-                    <Text style={styles.text}>{dish.translationName}</Text>
+                    <Text
+                      style={[
+                        styles.text,
+                        {
+                          backgroundColor: dish.highlight
+                            ? "rgba(204, 153, 0, 0.7)"
+                            : "rgba(0, 0, 0, 0.7)",
+                        },
+                      ]}
+                    >
+                      {dish.translationName}
+                    </Text>
                   </TouchableOpacity>
                 );
               })}
@@ -163,7 +174,9 @@ const PicScreen = () => {
       >
         <View style={styles.modalOverlay}>
           <View style={styles.modalHeader}>
-            <HighlightButton />
+            {selectedDishId && (
+              <HighlightButton dishId={selectedDishId as number} />
+            )}
             <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
               <MaterialIcons name="close" size={24} color="black" />
             </TouchableOpacity>

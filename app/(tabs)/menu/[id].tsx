@@ -25,7 +25,7 @@ const ListDishDetailScreen = () => {
             style={{ marginLeft: 5 }}
           />
         </TouchableOpacity>
-        <HighlightButton />
+        <HighlightButton dishId={dish.id} />
       </View>
       <ScrollView contentContainerStyle={styles.container}>
         <ItemDetail dish={dish} />

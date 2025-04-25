@@ -7,6 +7,7 @@ export type Dish = {
   id: number;
   name: string;
   translationName: string;
+  highlight: boolean;
   description?: string;
   ingredients?: string[];
   allergens?: string[];

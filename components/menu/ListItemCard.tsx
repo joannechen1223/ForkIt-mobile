@@ -23,7 +23,17 @@ const ListDishCard = ({
     <View style={styles.flexColumnContainer}>
       <View style={styles.flexRowContainer}>
         <View style={styles.itemInfo}>
-          <Text style={styles.itemName}>{name}</Text>
+          <View style={styles.nameContainer}>
+            <Text style={styles.itemName}>{name}</Text>
+            {dish.highlight && (
+              <MaterialIcons
+                name="star"
+                size={25}
+                color="#ffac1d"
+                style={styles.starIcon}
+              />
+            )}
+          </View>
           <Text style={styles.translationName}>{translationName}</Text>
           <View style={styles.ingredients}>
             {ingredients &&
@@ -182,6 +192,13 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontFamily: "Arial",
     lineHeight: 21,
+  },
+  nameContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  starIcon: {
+    marginLeft: 5,
   },
 });
 
