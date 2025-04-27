@@ -1,22 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, StyleSheet, View, ActivityIndicator } from "react-native";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import SimpleScrollView from "@/components/SimpleScrollView";
 import IngredientModal from "@/components/menu/IngredientModal";
 import ListDishCard from "@/components/menu/ListItemCard";
 import { HorizontalLine } from "@/components/ui/HorizontalLine";
+import { checkMenuReady } from "@/features/Menu/menu";
+import getDishes from "@/features/Menu/dishes";
+
+const POLLING_INTERVAL_MS = 1000;
+const TIMEOUT_LIMIT_MS = 60000; // 60 seconds
 
 const ListScreen = () => {
+  const dispatch = useDispatch();
   const [openIngredientModal, setOpenIngredientModal] = useState(false);
   const [ingredientName, setIngredientName] = useState("");
-  const isReady = useSelector((state: any) => state.menu.menu.isReady);
+  const menu = useSelector((state: any) => state.menu.menu);
+  const isReady = menu.isReady;
   const dishes = useSelector((state: any) => state.menu.dishes);
 
   const handleCloseIngredientModal = () => {
     setOpenIngredientModal(false);
     setIngredientName("");
   };
+
+  useEffect(() => {
+    let intervalId: NodeJS.Timeout;
+    let timeoutId: NodeJS.Timeout;
+
+    if (!isReady && menu?.id) {
+      console.log("Start polling menu ready status...");
+      intervalId = setInterval(async () => {
+        try {
+          const ready = await checkMenuReady(menu.id, dispatch);
+          if (ready) {
+            console.log("Menu ready! Fetching dishes...");
+            await getDishes(menu.id, dispatch);
+            clearInterval(intervalId);
+            clearTimeout(timeoutId);
+          }
+        } catch (error) {
+          console.error("Error while polling menu ready:", error);
+          clearInterval(intervalId);
+          clearTimeout(timeoutId);
+        }
+      }, POLLING_INTERVAL_MS);
+
+      // Set timeout to stop polling after TIMEOUT_LIMIT_MS
+      timeoutId = setTimeout(() => {
+        console.warn("Polling timed out after 1 minute. Stopping...");
+        clearInterval(intervalId);
+      }, TIMEOUT_LIMIT_MS);
+    }
+
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [isReady, menu?.id, dispatch]);
 
   if (!isReady) {
     return (
