@@ -1,6 +1,13 @@
-# Welcome to your Expo app 👋
+# ForkIt Mobile
+
+Hi we are the founders of ForkIt 🍴
+an app that takes the frustration out of dining by making menus more intuitive.
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+
+## Demo Video
+
+![ForkIt Demo](./assets/demo.mov)
 
 ## Get started
 
@@ -11,29 +18,18 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    ```
 
 2. Start the app
+   The app should is developed by React Native framework, which suppose to be cross-platform. Yet, we only tested on iOS device in the current stage. You
+   can install [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/) while
+   setting up your dev environment.
 
    ```bash
-    npx expo start
+    # build on iOS simulator
+    npm run ios
+    # build on your dev device
+    npm run ios:device
    ```
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+   [Expo Go](https://expo.dev/go) is not working as we set up the Firebase Auth which is not compatible with Expo Go.
 
 ## Learn more
 
@@ -42,9 +38,42 @@ To learn more about developing your project with Expo, look at the following res
 - [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
 - [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
+## Build and Distribute the app
 
-Join our community of developers creating universal apps.
+### EAS Build and TestFlight Submission
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+1. Make sure you have EAS CLI installed:
+
+   ```bash
+   npm install -g eas-cli
+   ```
+
+2. Log in to your Expo account:
+
+   ```bash
+   eas login
+   ```
+
+3. Link your Apple Developer Program account:
+
+   ```bash
+   eas credentials
+   ```
+
+   Follow the prompts to:
+
+   - Select your project
+   - Choose iOS platform
+   - Link your Apple Developer account (you'll need your Apple ID and password)
+
+4. Build for iOS:
+
+   ```bash
+   eas build --platform ios
+   ```
+
+5. Submit to TestFlight:
+   ```bash
+   eas submit --platform ios
+   ```
+   For more detailed instructions, refer to the [EAS Build documentation](https://docs.expo.dev/build/introduction/) and [EAS Submit documentation](https://docs.expo.dev/submit/introduction/).
