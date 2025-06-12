@@ -7,7 +7,7 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 ## Demo Video
 
-![ForkIt Demo](./assets/demo.mov)
+[![ForkIt Demo](https://img.youtube.com/vi/qSyk2U1yosY/0.jpg)](https://youtube.com/shorts/qSyk2U1yosY?feature=share)
 
 ## Get started
 
